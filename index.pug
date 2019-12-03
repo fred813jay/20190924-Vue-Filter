@@ -1,0 +1,20 @@
+#app.container
+  .row
+    .col-sm-12
+      br
+      label 關鍵字
+      h4 總共有 {{filtered_post.length}} 篇文章
+      input(v-model="filter")
+  .row
+    postbox(:post="p" v-for="p in filtered_post")
+
+
+
+
+template#post
+  .postbox.col-sm-4
+    .postbox_inner
+      .image(:src="coverurl", :style="covercss")
+      h6(v-html="post.name_short")
+      h4(v-html="post.title")
+      p(v-html="post.description")
